@@ -2,10 +2,9 @@ import axios from "axios";
 import dotenv from "dotenv"
 
 // Load environment variables from a .env file in the current directory
-dotenv.config();
+let dotenv2 = dotenv.config();
+console.log(dotenv2)
 
-
-console.log(process.env.VITE_BACKEND_API_ROOT_URL);
 
 console.log("Test.................................")
 console.log(import.meta.env.VITE_BACKEND_API_ROOT_URL)
