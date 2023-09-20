@@ -1,12 +1,18 @@
 import axios from "axios";
+import dotenv from "dotenv"
+
+// Load environment variables from a .env file in the current directory
+dotenv.config();
 
 
+console.log(process.env.VITE_BACKEND_API_ROOT_URL);
 
 console.log("Test.................................")
 console.log(import.meta.env.VITE_BACKEND_API_ROOT_URL)
 
+console.log("Or logic..")
+
 const test = process.env.VITE_BACKEND_API_ROOT_URL || import.meta.env.VITE_BACKEND_API_ROOT_URL
-console.log("Or logic for env var:::::::")
 console.log(test)
 
 // initializing the axios instance with custom configs
