@@ -1,18 +1,17 @@
 import axios from "axios";
-import dotenv from "dotenv"
-
-// Load environment variables from a .env file in the current directory
-let dotenv2 = dotenv.config();
-console.log(dotenv2)
 
 
-console.log("Test.................................")
-console.log(import.meta.env.VITE_BACKEND_API_ROOT_URL)
+//If prod detected, set production backend url otherwise always assume it is dev
+let backendApiRootUrl
+if(import.meta.env.MODE === 'production'){
+  backendApiRootUrl = 'https://ledger-app-react-1.drewmcburney.com'
+}else {
+  backendApiRootUrl = 'http://localhost:3000'
+}
 
-console.log("Or logic..")
+console.log(`Backend url:: ${backendApiRootUrl}`)
 
-const test = process.env.VITE_BACKEND_API_ROOT_URL || import.meta.env.VITE_BACKEND_API_ROOT_URL
-console.log(test)
+
 
 // initializing the axios instance with custom configs
 export const api = axios.create({
@@ -23,7 +22,7 @@ export const api = axios.create({
   },
 });
 
-const baseApiUrl = `${import.meta.env.VITE_BACKEND_API_ROOT_URL}/api/v1`
+const baseApiUrl = `${backendApiRootUrl}/api/v1`
 
 export const userRoute = `${baseApiUrl}/user`;
 
