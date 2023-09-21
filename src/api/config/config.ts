@@ -4,7 +4,7 @@ import axios from "axios";
 //If prod detected, set production backend url otherwise always assume it is dev
 let backendApiRootUrl
 if(import.meta.env.MODE === 'production'){
-  backendApiRootUrl = 'https://ledger-app-react-1.drewmcburney.com'
+  backendApiRootUrl = 'https://ledger-app-nodejs-1.drewmcburney.com'
 }else {
   backendApiRootUrl = 'http://localhost:3000'
 }
